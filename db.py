@@ -1,10 +1,6 @@
+from store_config import *
 import mysql.connector
 from mysql.connector import Error
-
-DEF_HOST = 'sql-003.webh.cloud'
-DEF_DB = 'u202942_store'
-DEF_USER = 'u202942_db'
-DEF_PASS = 'sV1yI9eU3d'
 
 class DB:
     def __init__(self, host = None, db = None, user = None, password = None, permanent = False):
