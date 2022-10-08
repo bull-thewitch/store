@@ -149,20 +149,6 @@ class StoreDB:
             return self.lastrowid
         return None
 
-    # def change_cat_name(self, id, new_name):
-    #     q = f"UPDATE `category` SET `name`=\"{new_name}\" WHERE `id`={id}"
-    #     return (self.exec_query(q) == 1)
-
-    # def change_cat_parent(self, id, new_parent_id):
-    #     if new_parent_id is None:
-    #         ps = "NULL"
-    #     else:
-    #         ps = str(new_parent_id)
-        
-    #     q = f"UPDATE `category` SET `parent_id`={ps} WHERE `id`={id}"
-
-    #     return (self.exec_query(q) == 1)
-
 
     def change_cat(self, id, name=None, parent_id=False):
         param = ""
@@ -220,6 +206,7 @@ class StoreDB:
             return lst
         return None
 
+
     def change_product(self, id, name=None, desc=None, qty=None, price=None):
         param = ""
         if not name is None:
@@ -235,61 +222,11 @@ class StoreDB:
         q = f"UPDATE `product` SET {param} WHERE `id`={id}"
         print(q)
     
-    # def change_cat_name(self, id, new_name):
-    #     q = f"UPDATE `category` SET `name`=\"{new_name}\" WHERE `id`={id}"
-    #     return (self.exec_query(q) == 1)
-
-    # def change_cat_parent(self, id, new_parent_id):
-    #     if new_parent_id is None:
-    #         ps = "NULL"
-    #     else:
-    #         ps = str(new_parent_id)
-        
-    #     q = f"UPDATE `category` SET `parent_id`={ps} WHERE `id`={id}"
-
-    #     return (self.exec_query(q) == 1)
-
-    # def remove_cat(self, id, name):
-    #     self.err = ""
-    #     ids = str(id)
-
-    #     q = f"DELETE FROM `category` WHERE `name`=\"{name}\" AND `id`={ids}"
-
-    #     with DB(host=self.host, db=self.db, user=self.user, password=self.password) as db_handler:
-    #         res = db_handler.query(q)
-    #         if not res:
-    #             self.err = db_handler.get_err()
-
-
-# with StoreDB(db = "u202942_test") as d:
-#     for x in range(20):
-#         if not d.add_cat(None, f"uszko{x}"):
-#             print(d.get_err())
-    
-#     if not d.add_product("smycz", "opis2", 17, 100, [10, 20, 11]):
-#         print(d.get_err())
-
-# d = StoreDB(db = "u202942_test")
-
-# d.connect()
-# for x in range(20):
-#     if not d.add_cat(None, f"dupa{x}"):
-#         print(d.get_err())
-
-# if not d.remove_cat(31, "blada"):
-#     print(d.get_err())
-
-# if not d.change_cat_name(78, "xyz"):
-#     print(d.get_err())
-
-# if not d.add_product("piłka", "opis1", 7, 10, [1, 2, 4, 10]):
-#     print(d.get_err())
-# d.disconnect()
-
 
 with StoreDB(db = "u202942_test") as d:
     print(d.get_err())
-    print(d.get_cat(33))
+    print(d.get_cat(35))
+    
 
 d = StoreDB(db = "u202942_test")
 print(d.get_cat(2))
